@@ -7,7 +7,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/shashankth0707/mavennew.git'
+                git branch: 'master', url: 'https://github.com/shashankth0707/newans.git'
+            }
         }
 
         stage('Build') {
@@ -28,8 +29,7 @@ pipeline {
         stage('Run Application') {
             steps {
                 // Start the JAR application
-                sh 'java -jar build/libs/MavenApp-1.0-SNAPSHOT.jar'
-    
+                sh 'java -jar target/MyMavenApp-1.0-SNAPSHOT.jar'
             }
         }
 
@@ -44,5 +44,4 @@ pipeline {
             echo 'Build failed!'
         }
     }
-}
 }
